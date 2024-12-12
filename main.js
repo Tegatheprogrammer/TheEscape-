@@ -133,3 +133,40 @@ function toggleDropdown(id) {
     }
 };
 
+// Apply default dark mode or saved user preference
+window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme'); // Check saved preference
+    const body = document.body;
+    const themeIcon = document.getElementById('theme-icon');
+
+    if (savedTheme === 'light') {
+        // If light mode is saved, apply it
+        body.classList.remove('dark-mode');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    } else {
+        // Default to dark mode
+        body.classList.add('dark-mode');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    }
+});
+
+// Toggle between light and dark mode
+function toggleTheme() {
+    const body = document.body;
+    const themeIcon = document.getElementById('theme-icon');
+
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+        // Save dark mode preference
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        // Save light mode preference
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'light');
+    }
+}
