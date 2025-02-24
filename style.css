@@ -1,0 +1,560 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    overflow: hidden; /* Prevent scrolling during loading */
+}
+
+/* Loader */
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s ease; /* Smooth fade-out */
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ccc;
+    border-top: 5px solid #333;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Re-enable scrolling when loaded */
+body.loaded {
+    overflow: auto;
+}
+/* Header and Modern Navbar */
+header {
+    background-color: #fff;
+    color: black;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.navbar {
+    background-color: #fff;
+    padding: 0.5rem 0;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li button {
+    color: black;
+    background-color: transparent;
+    border: 2px solid black;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-links li button:hover {
+    background-color: black;
+    color: white;
+}
+
+/* Sections with Transitions */
+section {
+    display: none;
+    opacity: 0;
+    padding: 20px;
+    margin: 10px auto;
+    max-width: 800px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(20px);
+}
+
+section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover Effect on Images */
+img {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.05); /* Zoom effect */
+}
+
+footer {
+    background-color: #fff;
+    color: black;
+    text-align: center;
+    padding: 1rem 0;
+}
+/* Responsive Design for tablets and smaller screens */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .navbar {
+        text-align: center;
+    }
+
+    .nav-links {
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 items on top */
+        grid-gap: 10px;
+        margin-top: 10px;
+    }
+
+    .nav-links li {
+        display: inline-block;
+        margin: 0;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    footer {
+        position: relative;
+        bottom: auto;
+    }
+}
+
+/* Responsive Design for tablets and smaller screens */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .navbar {
+        text-align: center;
+    }
+
+    .nav-links {
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 items on top */
+        grid-gap: 10px;
+        margin-top: 10px;
+    }
+
+    .nav-links li {
+        display: inline-block;
+        margin: 0;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    footer {
+        position: relative;
+        bottom: auto;
+    }
+}
+
+/* Responsive Design for mobile devices */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+
+    section h2 {
+        font-size: 1.4rem;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Mobile navigation adjustments */
+    .navbar {
+        padding: 10px;
+    }
+
+    .nav-links {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 items on top */
+        grid-template-rows: auto auto; /* 2 items below */
+        grid-gap: 10px;
+        margin-top: 10px;
+        justify-items: center; /* Center all grid items horizontally */
+    }
+
+    .nav-links li {
+        display: inline-block;
+        margin: 0;
+    }
+
+    /* Center the second row of items */
+    .nav-links li:nth-child(4),
+    .nav-links li:nth-child(5) {
+        grid-column: span 1;
+        justify-self: center; /* Center the second row items */
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+
+/* Light Mode */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #f4f4f4;
+}
+
+
+
+body.dark-mode header {
+    background-color: #1e1e1e;
+    color: #f4f4f4;
+}
+
+/* Theme Toggle Button Styling */
+#theme-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333; /* Default color for light mode */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode #theme-toggle {
+    color: #f4f4f4; /* Color for dark mode */
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Font Awesome Icon Adjustments */
+#theme-icon {
+    font-size: 24px;
+}
+/* Navbar */
+
+
+body.dark-mode .navbar {
+    background-color: #2a2a2a;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #444;
+}
+
+
+body.dark-mode .nav-links li button {
+    color: #f4f4f4;
+    border-color: #f4f4f4;
+}
+
+
+
+body.dark-mode .nav-links li button:hover {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Sections */
+
+
+body.dark-mode section {
+    background-color: #2a2a2a;
+    border-bottom: 1px solid #444;
+}
+
+body.dark-mode footer{
+    background-color: #2a2a2a;
+    color:#fff;
+}
+
+/* Slideshow Container */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/* Slide Images */
+.slide {
+    display: none;
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Navigation Arrows */
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Fade Animation */
+.fade {
+    animation: fadeEffect 1s ease-in-out;
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Card Container */
+.card-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Individual Cards */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Images */
+.card img {
+    width: 100%;
+    max-width: 400px; /* Adjust width for larger images */
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Buttons */
+.name-btn {
+    color: #333; /* Default for light mode */
+    background-color: transparent;
+    border: 2px solid #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .name-btn {
+    color: #f4f4f4; /* Dark mode text */
+    border-color: #f4f4f4; /* Match border color with text */
+}
+
+.name-btn:hover {
+    background-color: #333; /* Darker background for light mode */
+    color: white;
+}
+
+body.dark-mode .name-btn:hover {
+    background-color: #f4f4f4; /* Lighter background for dark mode */
+    color: #333;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card img {
+        max-width: 100%; /* Full width for smaller screens */
+    }
+}
+
+/* Cast List Styling */
+.cast-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual Cast Items */
+.cast-item {
+    margin-bottom: 20px; /* Space between each dropdown */
+}
+
+/* Header with Name and Icon */
+.cast-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Dropdown Icon */
+.dropdown-icon {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+/* Rotate Icon When Dropdown is Active */
+.dropdown-content.active + .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+body.dark-mode .dropdown-content {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+/* Active Dropdown */
+.dropdown-content.active {
+    display: block;
+}
+
+/* Card Header with Name and Icon */
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.card-header .dropdown-icon {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+/* Rotate Icon When Dropdown is Active */
+.dropdown-content.active + .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: left;
+}
+
+body.dark-mode .dropdown-content {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+/* Active Dropdown */
+.dropdown-content.active {
+    display: block;
+}
+
+.cast-img {
+    width: 130px;
+    height: 130px;
+    display: block;
+    margin: 10px 0;
+}
